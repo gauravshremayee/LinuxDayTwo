@@ -1,0 +1,37 @@
+#manual page
+man <command name>
+
+ls -ltr 
+
+ls -li
+# find file containing particular inode
+find /home/rahul -inum 1150561
+
+#cp command
+#copy file a.sh to b.sh . 
+cp a.sh b.sh
+#both will be having different inode
+#permission will remain same 
+
+#use -p to preserve permission 
+
+cp -rp test1 test
+
+test1 will be copied inside test
+
+#move file or rename file
+mv a.sh b.sh
+
+#hard link 
+ln a.sh t 
+
+#both will have same inode and any changes in any of the file will reflect in both
+
+#soft link
+ln -s a.sh t1
+
+#t1 is a pointer to a.sh 
+
+
+
+
