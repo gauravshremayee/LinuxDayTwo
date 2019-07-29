@@ -1,0 +1,36 @@
+#locate command
+updatedb
+locate filename
+
+
+#search string in file 
+
+
+#grep -iRl "your-text-to-find" ./
+
+#find command 
+$sudo touch /a.txt
+$sudo find / -name a.txt
+find: ‘/run/user/1000/gvfs’: Permission denied
+/a.txt
+
+
+$ls test1/
+abc  def
+$ find . -name abc
+./test1/abc
+
+#find files equal to 2M in ~ dir +M is for MB G is for GB 
+
+find ~ -type f -size +2k  -exec ls -sh {} \;
+
+#find files bigger than 4GB
+
+find . -type f -size +4G
+
+#find files ahving size between 30M and 40M
+find  / -size +30M -size -40M
+
+
+
+
