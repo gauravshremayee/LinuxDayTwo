@@ -32,5 +32,7 @@ find . -type f -size +4G
 find  / -size +30M -size -40M
 
 
+#create a file of specific size
 
+dd if=/dev/zero of=file.txt count=1024 bs=1048576 
 
