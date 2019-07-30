@@ -1,34 +1,46 @@
-#File permission 
+#command alias
 
-#File permission (defaults) depends on umask
-#The default umask 002 used for normal user. With this mask default directory permissions are 775 and default file permissions are 664.
+alias lshistory='ls -lhtr'
 
-root@a3363f98c89b:/# umask 002
-root@a3363f98c89b:/# 
-root@a3363f98c89b:/# 
-root@a3363f98c89b:/# touch d.sh
-root@a3363f98c89b:/# ls -ltr
-total 64
+#environment variable
 
--rw-rw-r--   1 root root    0 Jul 28 19:23 d.sh
+env
 
-#if umask 000 then default directory permission 777 and then file permission 666
-#trick 6-0 6-0 6-0 for file and 7-0 7-0 7-0 for directory 
+#set environment variable
 
-root@a3363f98c89b:/# umask 000
-root@a3363f98c89b:/# touch e.sh
-root@a3363f98c89b:/# ls -ltr
-total 64
-drwxr-xr-x   8 root root 4096 May 23  2017 lib
-drwxr-xr-x   2 root root 4096 Apr 24  2018 home
+parallels@k8s-worker-node1:~/test$ export NAME=gaurav
+parallels@k8s-worker-node1:~/test$ echo $NAME
+gaurav
+parallels@k8s-worker-node1:~/test$ 
+parallels@k8s-worker-node1:~/test$ 
+parallels@k8s-worker-node1:~/test$ sudo vim test.sh
 
--rw-rw-r--   1 root root    0 Jul 28 19:23 d.sh
--rw-rw-rw-   1 root root    0 Jul 28 19:25 e.sh
+$ cat test.sh
+fileList=`ls /home/parallels`
 
-root@a3363f98c89b:/# mkdir test
-root@a3363f98c89b:/# ls -ltr
-total 68
+isFileExist=`echo "$fileList" | grep start`
 
--rw-rw-rw-   1 root root    0 Jul 28 19:25 e.sh
-drwxrwxrwx   2 root root 4096 Jul 28 19:25 test
+echo $isFileExist
+if [ ! -z "$isFileExist" ];
+then
+  echo "File exists"
+else
+  echo "File Doesn't Exist"
+fi
+
+echo $NAME
+
+
+#$ sh test.sh
+customstartup.sh starttest.txt
+File exists
+gaurav
+
+
+#set environment variable permanently
+
+~/.bashrc
+~/.profile
+/etc/environment
+
 
