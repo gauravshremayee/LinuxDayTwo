@@ -43,4 +43,7 @@ gaurav
 ~/.profile
 /etc/environment
 
+#nohup
+nohup command name &&
+
 
